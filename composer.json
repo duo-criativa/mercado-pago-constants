@@ -1,0 +1,20 @@
+{
+    "name": "duo-criativa/mercado-pago-constants",
+    "description": "Mercado Pago constants and description tables",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DuoCriativa\\MercadoPagoConstants\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paulo Ribeiro",
+            "email": "ribeiro.paulor@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2"
+    }
+}
