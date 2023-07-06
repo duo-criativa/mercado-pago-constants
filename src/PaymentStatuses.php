@@ -53,4 +53,42 @@ class PaymentStatuses
     {
         return $this->statuses;
     }
+
+    private string $defaultLocale = 'en';
+    private $locales = [];
+
+    public function addLocale(string $locale, PaymentStatusesLocale $paymentStatusesLocale): void
+    {
+        $this->locales[$locale] = $paymentStatusesLocale;
+    }
+
+    public function setDefaultLocale(string $locale): void
+    {
+        if (!isset($this->locales[$locale])) {
+            throw new \LogicException("Locale `$locale` does not exists. Can't be defined as default.");
+        }
+
+        $this->defaultLocale = $locale;
+    }
+
+    public function get(string $status, ?string $locale = null): ?PaymentStatus
+    {
+        if ($locale === null || !isset($this->locales[$this->defaultLocale])) {
+            $locale = $this->defaultLocale;
+        }
+        $statuses = $this->locales[$locale];
+        assert($statuses instanceof PaymentStatusesLocale);
+
+        return $statuses->get($status);
+    }
+
+    public function getOrFail(string $status, ?string $locale = null): PaymentStatus
+    {
+        $found = $this->get($status);
+        if (null === $found) {
+            throw new \InvalidArgumentException("Mercado Pago Payment Status not found: $status");
+        }
+
+        return $found;
+    }
 }
