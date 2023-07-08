@@ -28,6 +28,7 @@ class PaymentStatuses
 
     public function __construct()
     {
+        $this->addLocale('en', new Locale\English\PaymentStatusesLocale());;
         $this->add(PaymentStatus::create(self::PENDING, self::PENDING_DESCRIPTION));
         $this->add(PaymentStatus::create(self::APPROVED, self::APPROVED_DESCRIPTION));
         $this->add(PaymentStatus::create(self::AUTHORIZED, self::AUTHORIZED_DESCRIPTION));

@@ -7,10 +7,24 @@ use DuoCriativa\MercadoPagoConstants\PaymentStatuses;
 
 
 $statuses = new PaymentStatuses();
-$statuses->get();
+$status = $statuses->get('pending');
 ```
 
-### Localizing
+### Localization
+
+## Using static method
+
+
+```php
+use DuoCriativa\MercadoPagoConstants\PaymentStatuses;
+
+PaymentStatuses::addLocale('pt-BR', new PaymentStatusesBrazil);
+$statuses = new PaymentStatuses('pt-BR');
+$status = $statuses->get('pending');
+echo $status->status; // pending
+echo $status->description; // 
+```
+
 
 ```php
 use DuoCriativa\MercadoPagoConstants\PaymentStatuses;
