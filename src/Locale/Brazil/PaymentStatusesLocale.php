@@ -34,11 +34,11 @@ class PaymentStatusesLocale implements \DuoCriativa\MercadoPagoConstants\Payment
         PaymentStatuses::APPROVED => 'Aprovado',
         PaymentStatuses::AUTHORIZED => 'Autorizado',
         PaymentStatuses::IN_PROCESS => 'Em processamento.',
-        PaymentStatuses::IN_MEDIATION => self::IN_MEDIATION_DESCRIPTION,
-        PaymentStatuses::REJECTED => self::REJECTED_DESCRIPTION,
-        PaymentStatuses::CANCELLED => self::CANCELLED_DESCRIPTION,
-        PaymentStatuses::CHARGED_BACK => self::CHARGED_BACK_DESCRIPTION,
-        PaymentStatuses::REFUNDED => self::REFUNDED_DESCRIPTION,
+        PaymentStatuses::IN_MEDIATION => 'Em mediação',
+        PaymentStatuses::REJECTED => 'Rejeitado',
+        PaymentStatuses::CANCELLED => 'Cancelado',
+        PaymentStatuses::CHARGED_BACK => 'Devolvido',
+        PaymentStatuses::REFUNDED => 'Reembolsado',
     ];
 
     public function get(string $status): ?PaymentStatus
